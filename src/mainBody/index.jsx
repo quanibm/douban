@@ -3,14 +3,12 @@ import PORT from '../api'
 
 import './index.css';
 import ListPage from './ListPage';
-import BookDetails from './BookDetails';
-import MovieDetails from './MovieDetails';
-import MusicDetails from './MusicDetails';
+
 export default class componentName extends Component {
   constructor() {
     super()
     this.state = {
-      datas: ''
+      datas: '',
     }
   }
 
@@ -19,7 +17,6 @@ export default class componentName extends Component {
       datas: datas
     })
   }
-
 
   render() {
     const parames = this.props.parames;
@@ -37,21 +34,11 @@ export default class componentName extends Component {
         PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
         break;
     }
-    if (parames.classArg === 'book' || parames.classArg === 'movie' || parames.classArg === 'music') {
       return (
         <div className='mainBody'>
           <ListPage listArr={arr} changeClass={this.props.changeClass} classArg={parames.classArg} />
         </div>
       )
-    } else {
-      return (
-        <div className='mainBody'>
-          <h1>111s</h1>
-        </div>
-      )
-    }
-
-
   }
 
   componentDidMount() {

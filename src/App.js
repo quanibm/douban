@@ -19,7 +19,6 @@ class App extends Component {
       defaultValue: '书名 、 作者',
       classArg: 'book',
       count: 5,
-      id: '',
       queryArg: '',
       reLoad: true
     }
