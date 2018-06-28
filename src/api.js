@@ -54,7 +54,7 @@ const PORT = {
     callGet(classArg, count, id, queryArg, callback) {
         var src = this.setSrc(classArg, count, id, queryArg, callback)
         console.log('​callGet -> src', src);
-        this.getData(src, callback);
+        // this.getData(src, callback);
     }
 }
 

@@ -19,6 +19,7 @@ class App extends Component {
       defaultValue: '书名 、 作者',
       classArg: 'book',
       count: 5,
+      id: '',
       queryArg: '',
       reLoad: true
     }
@@ -32,6 +33,12 @@ class App extends Component {
     this.setState({
       classArg: category,
       defaultValue: key
+    })
+  }
+
+  changeId(id) {
+    this.setState({
+      id: id
     })
   }
 
@@ -51,10 +58,27 @@ class App extends Component {
         this.setState({
           classArg: 'musicDetails'
         })
-
+        break;
+      case 'bookDetails':
+        this.setState({
+          classArg: 'book'
+        })
+        break;
+      case 'movieDetails':
+        this.setState({
+          classArg: 'movie'
+        })
+        break;
+      case 'musicDetails':
+        this.setState({
+          classArg: 'music'
+        })
+        break;
 
     }
   }
+
+
 
   render() {
     const parames = this.state;
@@ -63,8 +87,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <MainHeader defaultValue={this.state.defaultValue} handleQueryArg={this.handleQueryArg.bind(this)} classArg={this.state.classArg} />
-        <MainBody parames={parames} changeClass={this.changeClass.bind(this)} />
+        <MainHeader defaultValue={this.state.defaultValue} handleQueryArg={this.handleQueryArg.bind(this)} changeClass={this.changeClass.bind(this)} parames={parames} />
+        <MainBody parames={parames} changeClass={this.changeClass.bind(this)} changeId={this.changeId.bind(this)} />
         <MainFooter handleGetArg={this.handleGetArg.bind(this)} classArg={this.state.classArg} />
       </div>
     );

@@ -18,27 +18,29 @@ export default class componentName extends Component {
     })
   }
 
+
+
   render() {
     const parames = this.props.parames;
     switch (parames.classArg) {
       case 'book':
-        var arr = 'this.state.datas.books';
+        var arr = [this.state.datas.books];
         PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
         break;
       case 'movie':
-        var arr = 'this.state.datas.movies';
+        var arr = [this.state.datas.movies];
         PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
         break;
       case 'music':
-        var arr = 'this.state.datas.musics';
+        var arr = [this.state.datas.musics];
         PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
         break;
     }
-      return (
-        <div className='mainBody'>
-          <ListPage listArr={arr} changeClass={this.props.changeClass} classArg={parames.classArg} />
-        </div>
-      )
+    return (
+      <div className='mainBody'>
+        <ListPage listArr={arr} changeClass={this.props.changeClass} classArg={parames.classArg} changeId={this.props.changeId}/>
+      </div>
+    )
   }
 
   componentDidMount() {

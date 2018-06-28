@@ -7,19 +7,15 @@ import MovieDetails from './MovieDetails';
 import MusicDetails from './MusicDetails';
 export default class componentName extends Component {
 
-  handleDetails(_class) {
+  handleDetails(_class, e) {
     this.props.changeClass(_class)
-    // switch (this.props.classArg){
-    //   case 'book':
-
-    // }
+    this.props.changeId(e.target.id)
   }
 
   render() {
     console.log(this.props.listArr)
     const listArr = this.props.listArr;
     const classArg = this.props.classArg;
-
     switch (classArg) {
       case 'book':
       case 'movie':
@@ -27,8 +23,8 @@ export default class componentName extends Component {
         return (
           <ul>
             {
-              [111,3,3].map((item, index) => {
-                return <li key={index} onClick={this.handleDetails.bind(this, classArg)} >{item}</li>
+              [111, 3, 3].map((item, index) => {
+                return <li key={index} onClick={this.handleDetails.bind(this, classArg)} id={item.id} >{item}</li>
               })
             }
           </ul>
@@ -47,12 +43,14 @@ export default class componentName extends Component {
             <MovieDetails />
           </div>
         )
+        break;
       case 'musicDetails':
         return (
           <div className='mainBody'>
             <MusicDetails />
           </div>
         )
+        break;
     }
   }
 };
