@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 import fetchJsonp from 'fetch-jsonp';
 
@@ -42,6 +42,8 @@ const PORT = {
         return src;
     },
     getData(src, callback) {
+        alert('我被调用了')
+
         fetchJsonp(src)
             .then(function (response) {
                 return response.json()
@@ -54,7 +56,7 @@ const PORT = {
     callGet(classArg, count, id, queryArg, callback) {
         var src = this.setSrc(classArg, count, id, queryArg, callback)
         console.log('​callGet -> src', src);
-        // this.getData(src, callback);
+        this.getData(src, callback);
     }
 }
 

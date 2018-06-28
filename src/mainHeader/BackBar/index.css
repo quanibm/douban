@@ -1,7 +1,6 @@
 .backBar {
     background: rgb(138, 138, 221);
-    height: 3rem;
-    line-height: 3rem;
+    height: 3.8rem;
     font-size: 1rem;
     /* display: flex;
     justify-content: center; */
@@ -10,13 +9,14 @@
 
 .backBar h1,
 .backBar span {
-    height: 3rem;
-    line-height: 3rem;
+    height: 3.8rem;
+    line-height: 3.8rem;
     font-size: 1rem;
 }
 
 .backBar span {
     position: absolute;
+    padding-left: 10px;
 }
 
 .backBar h1 {

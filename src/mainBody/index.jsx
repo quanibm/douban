@@ -24,6 +24,8 @@ export default class componentName extends Component {
     const parames = this.props.parames;
     switch (parames.classArg) {
       case 'book':
+        console.log('​componentName -> render -> book', '重复调用是什么情况');
+
         var arr = [this.state.datas.books];
         PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
         break;
@@ -38,15 +40,16 @@ export default class componentName extends Component {
     }
     return (
       <div className='mainBody'>
-        <ListPage listArr={arr} changeClass={this.props.changeClass} classArg={parames.classArg} changeId={this.props.changeId}/>
+        <ListPage listArr={arr} changeClass={this.props.changeClass} classArg={parames.classArg} changeId={this.props.changeId} />
       </div>
     )
   }
 
   componentDidMount() {
     // PORT.callGet(this.props.parames.classArg, this.state.count, this.state.id, this.props.parames.queryArg, this.setContents.bind(this))
-    const parames = this.props.parames;
-    PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
+    // const parames = this.props.parames;
+    // console.log('我是mount方法')
+    // PORT.callGet(parames.classArg, parames.count, parames.id, parames.queryArg, this.datas.bind(this))
   }
 
 };
